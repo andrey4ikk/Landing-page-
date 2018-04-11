@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700" rel="stylesheet">
+    <link rel="stylesheet" type"text/css" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" type"text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+   <header>
+        <div class="banner">
+                <div class="full_slider">
+                        <ul>
+                            <li><img src="img/banner.png" alt=""></li>
+                        </ul>
+                    </div>
+            <div class="social">
+                <a href="#" class="social_link"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a href="#" class="social_link"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+            </div>
+            <div class="banner_info">
+                <h1>Chatbot which helps millennials</h1>
+                <h2>Find unique attractions</h2> 
+                <button class="btn">Get Started</button>
+            </div>
+        </div>
+    </header>
+    <section class="heading">
+        <div class="subtitle">
+            <p>Powered by artificial intelligence</p>
+            <p>Designed by travelers</p>
+        </div> 
+
+        <div class="gallery">  
+            <div class="gallery_item_night_life" >
+                <img src="img/night_life.png ">  
+                    <h3>Night life</h3> 
+                    <p>Looking for night clubs and lounge
+                         zones?
+                        Explore available places and events</p>
+            </div>
+            <div class="gallery_item_shopping">
+                <img src="img/shopping.png">
+                <h3>Shopping</h3>
+                    <p>Going to buy new laptop?
+                        Explore available stores around you</p>
+            </div>
+            <div class="gallery_item_food">
+                <img src="img/food.png">
+                <h3>Food</h3>
+                    <p> Looking work an unique cafe?
+                        Explore <br>
+                        top-rated spaces</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="content_footer">
+            <div class="footer_info">
+                <div class="footer_aside">
+                    <h4>Available for you anytime</br>
+                        Everywhere</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt interdum sapien.</br>
+                            <p> Nulla malesuada fermentum purus. Nullam blandit ligula eget hendrerit ultricies. Suspendisse potenti. Phasellus euismod ultrices ligula, venenatis suscipit mauris tempor id.</p>  
+                    <button class="btn">Get Started</button>
+                </div>   
+
+                <div id="wrapper">
+                        <div class="slider">
+                                <ul class="images">
+                                    <li>
+                                        <img width="260" height="173" src="img/night_life.png" />
+                                    </li>
+                                    <li>
+                                        <img width="260" height="173" src="img/food.png" />
+                                    </li>
+                                    <li>
+                                        <img width="260" height="173" src="img/shopping.png" />
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="chat">
+                                    <div class="chat-container">
+                                      <div class="chat-listcontainer">
+                                
+                                        <ul class="chat-message-list">
+                                        </ul>
+                                
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <ul class="buttons">
+                                          <li><img src="img/image.png"></li>
+                                          <li><img src="img/image 2.png"></li>
+                                          <li><img src="img/icon.png"></li>
+                                      </ul>
+                                </div>
+                            </div>
+            <div class="social_navigation">
+                <div class="social_name">
+                    <h5>Social</h5>
+                    <a href="#">Facebook</a></br>
+                    <a href="#">Twitter</a></br>
+                    <a href="#">Linkedin</a></br>
+                    <a href="#">Angel List</a></br>
+                </div>
+                <div class="navigation_link">
+                    <h6>Navigation</h6>
+                    <a href="#">Careers</a></br>
+                    <a href="#">Our Services</a></br>
+                    <a href="#">About use</a></br>
+                    <a href="#">Contact</a></br>    
+                </div>
+            </div>
+            <div class="copyright">
+                <h7><i class="fa fa-copyright" aria-hidden="true"></i> Copyright Attractie</h7>
+            </div>
+        </div>
+    </footer>
+        <script>
+
+ var buttons = $('ul.buttons li');
+ var images = $('ul.images li');
+           
+ buttons.first().addClass('active');
+ images.hide().first().show();
+ 
+ function sliderResponse(target) {
+     images.fadeOut(300).eq(target).fadeIn(300);
+     buttons.removeClass('active').eq(target).addClass('active');
+ }
+
+ buttons.click(function() {
+     if ( !$(this).hasClass('active') ) {
+         target = $(this).index();
+         sliderResponse(target);
+     }
+ });
+ var chatMessages = [{
+  name: "ms1",
+  msg: "Nulla malesuada",
+  delay: 1000,
+  align: "right",
+  showTime: true,
+  time: "12:40"
+},
+{
+  name: "ms2",
+  msg: "Nulla malesuada fermentum purus. Nullam blandit ligula eget hendrerit ultricies. Suspendisse potenti. Phasellus euismod ultrices ligula, venenatis suscipit mauris tempor id.",
+  delay: 6000,
+  align: "left",
+  showTime: true,
+  time: "12:41"
+},];
+var chatDelay = 0;
+
+function onRowAdded() {
+  $('.chat-container').animate({
+    scrollTop: $('.chat-container').prop('scrollHeight')
+  });
+};
+$.each(chatMessages, function(index, obj) {
+  chatDelay = chatDelay + 40;
+  chatDelay2 = chatDelay + obj.delay;
+  chatDelay3 = chatDelay2 + 10;
+  scrollDelay = chatDelay
+  chatTimeString = " ";
+  msgname = "." + obj.name;
+  msginner = ".messageinner-" + obj.name;
+  spinner = ".sp-" + obj.name;
+  if (obj.showTime == true) {
+    chatTimeString = "<span class='message-time'>" + obj.time + "</span>";
+  }
+  $(".chat-message-list").append("<li class='message-" 
+  + obj.align + " " + obj.name + "' hidden><div class='sp-"
+   + obj.name + "'><span class='spinme-" + obj.align 
+   + "'><div class='spinner'><div class='bounce1'></div><div class='bounce2'></div><div class='bounce3'></div></div></span></div><div class='messageinner-"
+    + obj.name + "' hidden><span class='message-text'>" 
+    + obj.msg + "</span>" + chatTimeString + "</div></li>");
+  $(msgname).delay(chatDelay).fadeIn();
+  $(spinner).delay(chatDelay2).hide(1);
+  $(msginner).delay(chatDelay3).fadeIn();
+  setTimeout(onRowAdded, chatDelay);
+  setTimeout(onRowAdded, chatDelay3);
+  chatDelay = chatDelay3;
+});
+          </script>
+</body>
+</html>
